@@ -1,0 +1,62 @@
+{
+  "full": {
+    "edges": [
+      "trades",
+      "traded_by",
+      "co_trades",
+      "same_tx"
+    ],
+    "params": 69057,
+    "val_auc": 0.856,
+    "test": {
+      "auc": 0.867,
+      "f1": 0.8992,
+      "ap": 0.9603
+    },
+    "time_s": 124.7
+  },
+  "no_same_tx": {
+    "edges": [
+      "trades",
+      "traded_by",
+      "co_trades"
+    ],
+    "params": 52417,
+    "val_auc": 0.8506,
+    "test": {
+      "auc": 0.8202,
+      "f1": 0.8977,
+      "ap": 0.9291
+    },
+    "time_s": 65.6
+  },
+  "no_co_trade": {
+    "edges": [
+      "trades",
+      "traded_by",
+      "same_tx"
+    ],
+    "params": 52417,
+    "val_auc": 0.86,
+    "test": {
+      "auc": 0.8675,
+      "f1": 0.8969,
+      "ap": 0.9609
+    },
+    "time_s": 112.0
+  },
+  "no_coordination": {
+    "edges": [
+      "trades",
+      "traded_by"
+    ],
+    "params": 35777,
+    "val_auc": 0.853,
+    "test": {
+      "auc": 0.8631,
+      "f1": 0.8966,
+      "ap": 0.9584
+    },
+    "time_s": 79.5
+  }
+}

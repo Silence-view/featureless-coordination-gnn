@@ -1,0 +1,73 @@
+{
+  "seeds": [
+    42,
+    123,
+    7
+  ],
+  "featureless_gat": {
+    "runs": [
+      {
+        "seed": 42,
+        "val_auc": 0.856,
+        "test_auc": 0.867,
+        "test_auc_ci_lower": 0.8519,
+        "test_auc_ci_upper": 0.8815,
+        "epochs_trained": 58,
+        "time_s": 130.7
+      },
+      {
+        "seed": 123,
+        "val_auc": 0.8547,
+        "test_auc": 0.8682,
+        "test_auc_ci_lower": 0.8531,
+        "test_auc_ci_upper": 0.8827,
+        "epochs_trained": 43,
+        "time_s": 98.4
+      },
+      {
+        "seed": 7,
+        "val_auc": 0.8623,
+        "test_auc": 0.8718,
+        "test_auc_ci_lower": 0.8569,
+        "test_auc_ci_upper": 0.8862,
+        "epochs_trained": 51,
+        "time_s": 112.1
+      }
+    ],
+    "mean_test_auc": 0.869,
+    "std_test_auc": 0.002
+  },
+  "mlp_baseline": {
+    "runs": [
+      {
+        "seed": 42,
+        "val_auc": 0.8494,
+        "test_auc": 0.8515,
+        "test_auc_ci_lower": 0.8361,
+        "test_auc_ci_upper": 0.8658,
+        "epochs_trained": 42,
+        "time_s": 2.5
+      },
+      {
+        "seed": 123,
+        "val_auc": 0.8486,
+        "test_auc": 0.8506,
+        "test_auc_ci_lower": 0.8355,
+        "test_auc_ci_upper": 0.865,
+        "epochs_trained": 39,
+        "time_s": 2.7
+      },
+      {
+        "seed": 7,
+        "val_auc": 0.8522,
+        "test_auc": 0.8481,
+        "test_auc_ci_lower": 0.8329,
+        "test_auc_ci_upper": 0.8627,
+        "epochs_trained": 41,
+        "time_s": 2.6
+      }
+    ],
+    "mean_test_auc": 0.8501,
+    "std_test_auc": 0.0014
+  }
+}

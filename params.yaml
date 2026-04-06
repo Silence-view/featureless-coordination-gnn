@@ -1,0 +1,56 @@
+# Experiment configuration for COMP0162 Coursework
+# Featureless HeteroGAT on Solana wallet-token graph
+
+data:
+  raw_dir: "../SolEye/data/raw"    # Parquet transaction files
+  feat_label: "../MemeTrans-main/dataset/feat_label.csv"
+  graph_dir: "results/graphs"
+  processed_dir: "results/processed"
+  min_tokens: 20                    # Min distinct tokens per wallet
+  splits:
+    train: "bigquery_export"        # Week 50, Dec 9-15
+    val: "bigquery_export_w51"      # Week 51, Dec 16-22
+    test: "bigquery_export_w52"     # Week 52, Dec 23-29
+
+graph:
+  lambda_decay: 0.000278            # 1/3600, ~1h half-life for temporal Jaccard
+  target_mean_degree: 15.0
+  max_wallets_per_token: 3000
+
+model:
+  name: "FeaturelessHeteroGAT"
+  embed_dim: 64
+  hidden_dim: 64
+  gat_heads: 4
+  gat_head_dim: 16
+  dropout: 0.2
+
+training:
+  lr: 0.001
+  weight_decay: 0.001
+  max_epochs: 300
+  patience: 30
+  grad_clip: 1.0
+  pos_weight: null                  # Auto-computed from labels
+
+evaluation:
+  n_bootstrap: 1000
+  ci_level: 0.95
+
+temporal:
+  d_time: 64                      # Bochner encoding dimension
+  embed_dim: 128                  # Type embedding dimension (larger for link pred)
+  hidden_dim: 128
+  gat_heads: 4
+  gat_head_dim: 32
+  dropout: 0.2
+  batch_size: 1024                # Temporal batch size
+  n_neg: 19                       # Negative samples per positive (20 candidates total)
+
+link_prediction:
+  lr: 0.0003
+  max_epochs: 100
+  patience: 10
+  metrics: ["mrr", "hits@1", "hits@3", "hits@10", "ap"]
+
+seed: 42
